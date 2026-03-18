@@ -9,6 +9,6 @@ $senha = $data['senha'];
 $sql = "select * from usuarios where usulogin = '$usuario' and ususenha = MD5($senha);";
 $prp = $pdo->prepare($sql);
 $prp->execute();
-$data2 = $prp->fetchall(PDO::FETCH_ASSOC);
-echo json_encode($data2);
+$data = $prp->fetchall(PDO::FETCH_ASSOC);
+echo json_encode($data);
 //http://localhost/Projetos_ETEC_PWEB-III_Div2/api/login.php?jsn={"usuario":"XANDAO","senha":"123456"}

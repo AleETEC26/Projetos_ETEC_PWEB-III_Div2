@@ -9,5 +9,5 @@ $nome = $data['nome'];
 $sql = "select * from usuarios where usunome like '%$nome%';";
 $prp = $pdo->prepare($sql);
 $prp->execute();
-$data2 = $prp->fetchall(PDO::FETCH_ASSOC);
-echo json_encode($data2);
+$data = $prp->fetchall(PDO::FETCH_ASSOC);
+echo json_encode($data);
