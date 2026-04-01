@@ -15,7 +15,7 @@ if (empty($data['senha'])) {
     $senha = $data['senha'];
     $sql = "update usuarios set usunome=?,usulogin=?,ususenha=MD5(?) where usuid=?;";
     $prp = $pdo->prepare($sql);
-    $prp->execute(array($nome,$login,$senha,$id));
+    $prp->execute([$nome,$login,$senha,$id]);
 }
 Conexao::desconectar();
 //http://localhost/Projetos_ETEC_PWEB-III_Div2/api/uusuario.php?jsn={"id":6,"nome":"ENZO APARECIDO","login":"ENZO","senha":"pythonando"}
