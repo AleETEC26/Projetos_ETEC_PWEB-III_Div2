@@ -8,3 +8,8 @@ create table usuarios
         ususenha varchar(100),
         usulogado boolean default 0
     );
+create table categorias(
+    catid int primary key auto_increment,
+    catnome varchar(100),
+    catativo boolean default 0
+);
