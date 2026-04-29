@@ -10,6 +10,7 @@ $nome = $data['nome'];
 $login = $data['login'];
 $senha = $data['senha'];
 $logado = $data['logado'];
+//i = Insert, u = Update, d = Delete, sp= Select por nome, l= Select por login e senha
 //http://localhost/Projetos_ETEC_PWEB-III_Div2/api/usuario/index.php?jsn={%22ope%22:%22i%22,%22id%22:1,%22nome%22:%22Alexandre%22,%22login%22:%22Alex%22,%22senha%22:1234,%22logado%22:1}
 switch($ope) {
     case 'i':
@@ -43,7 +44,7 @@ switch($ope) {
         from usuarios 
         where usulogin=? and ususenha=MD5(?);";
         $prp = $pdo->prepare($sql);
-        $prp->execute([$logado, $senha]);
+        $prp->execute([$login, $senha]);
         $data = $prp->fetchall(PDO::FETCH_ASSOC);
         echo json_encode($data);
         break;
