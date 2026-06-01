@@ -21,3 +21,25 @@ create table categorias
         catnome varchar(100),
         catativo boolean default 1
     );
+create table produtos
+(
+    proid int primary key auto_increment,
+    pronome varchar(150),
+    provalorvenda double,
+    procatid int,
+    constraint fkprocatid foreign key (procatid) references categorias (catid)
+);
+create table ingredientes
+(
+    ingid int primary key auto_increment,
+    ingnome varchar(150),
+    ingvalorunitario double
+);
+create table ingredientesprodutos
+(
+    ipid int primary key auto_increment,
+    ipproid int,
+    ipingid int,
+    constraint fkipproid foreign key (ipproid) references produtos (proid),
+    constraint fkipingid foreign key (ipingid) references ingredientes (ingid)
+);
