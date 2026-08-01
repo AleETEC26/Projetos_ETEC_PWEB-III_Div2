@@ -7,12 +7,14 @@ select
 proid as id, 
 pronome as nome, 
 provalorvenda as vlvenda,
+catnome as categoria,
 procatid as cat 
-from produtos;
+from produtos, categorias
+where catid = procatid;
 ";
 $prp = $pdo->prepare($sql);
 $prp->execute();
 $data = $prp->fetchall(PDO::FETCH_ASSOC);
 echo json_encode($data);
 Conexao::desconectar();
-//http://localhost/Projetos_ETEC_PWEB-III_Div1/api/categorias/scategoria.php
+//http://localhost/Projetos_ETEC_PWEB-III_Div2/api/produtos/sproduto.php
